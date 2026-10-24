@@ -1,10 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>A Good Shop</title>
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="producto.js" defer></script>
+    <script src="carrito.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="cabecera">
+      <span class="logo">a<strong>good</strong>shop</span>
+      <span class="cabecera__subtitulo">Tu carrito</span>
+    </header>
 
-</body>
+    <main class="tienda">
+      <section class="panel">
+        <h1 class="panel__titulo">Productos</h1>
+
+        <div class="productos__cabecera">
+          <span>Producto</span>
+          <span>Cantidad</span>
+          <span class="derecha">Precio</span>
+          <span class="derecha">Subtotal</span>
+        </div>
+
+        <ul id="lista-productos" class="productos"></ul>
+
+        <p id="estado" class="estado"></p>
+      </section>
+
+      <aside class="panel resumen">
+        <h2 class="panel__titulo">Resumen</h2>
+
+        <ul id="resumen-lista" class="resumen__lista"></ul>
+
+        <div class="resumen__total">
+          <span>TOTAL</span>
+          <span id="total">0.00 €</span>
+        </div>
+      </aside>
+    </main>
+  </body>
 </html>

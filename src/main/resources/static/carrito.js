@@ -21,7 +21,11 @@ class Carrito {
 
   actualizarUnidades(sku, unidades) {
     let productoEncontrado = this.encontrarProducto(sku);
-    productoEncontrado.unidades = unidades;
+    if (unidades >= 0) {
+      productoEncontrado.unidades = unidades;
+    } else {
+      throw new Error("Las unidades han de ser positivas");
+    }
   }
 
   obtenerInformacionProducto(sku) {
@@ -29,7 +33,7 @@ class Carrito {
     return {
       titulo: productoEncontrado.titulo,
       sku: productoEncontrado.sku,
-      cantidad: productoEncontrado.unidades,
+      unidades: productoEncontrado.unidades,
       precio: productoEncontrado.precio,
     };
   }
