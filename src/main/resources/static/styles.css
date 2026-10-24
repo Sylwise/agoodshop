@@ -1,0 +1,247 @@
+:root {
+    --fondo: #f4f5f7;
+    --panel: #ffffff;
+    --texto: #1c1f26;
+    --suave: #6b7280;
+    --borde: #e5e7eb;
+    --acento: #4f46e5;
+    --acento-suave: #eef2ff;
+    --radio: 14px;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --fondo: #111318;
+        --panel: #1b1e25;
+        --texto: #eceef2;
+        --suave: #9aa1ad;
+        --borde: #2c303a;
+        --acento: #818cf8;
+        --acento-suave: #262a45;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Inter", system-ui, sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    line-height: 1.5;
+    min-height: 100vh;
+}
+
+.cabecera {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 24px 8px;
+}
+
+.logo {
+    font-size: 1.6rem;
+    letter-spacing: -0.03em;
+}
+
+.logo strong {
+    color: var(--acento);
+}
+
+.cabecera__subtitulo {
+    color: var(--suave);
+}
+
+.tienda {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px;
+    align-items: start;
+}
+
+.panel {
+    background: var(--panel);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    padding: 24px;
+}
+
+.panel__titulo {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.productos__cabecera,
+.producto {
+    display: grid;
+    grid-template-columns: 1fr 140px 100px 100px;
+    gap: 16px;
+    align-items: center;
+}
+
+.productos__cabecera {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--suave);
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--borde);
+}
+
+.productos {
+    list-style: none;
+}
+
+.producto {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--borde);
+}
+
+.producto:last-child {
+    border-bottom: none;
+}
+
+.producto__info {
+    display: flex;
+    flex-direction: column;
+}
+
+.producto__titulo {
+    font-weight: 600;
+}
+
+.producto__sku {
+    font-size: 0.8rem;
+    color: var(--suave);
+}
+
+.producto__precio,
+.producto__subtotal,
+.derecha {
+    text-align: right;
+}
+
+.producto__subtotal {
+    font-weight: 600;
+}
+
+.cantidad {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    overflow: hidden;
+    width: fit-content;
+}
+
+.cantidad__boton {
+    width: 34px;
+    height: 34px;
+    border: none;
+    background: var(--acento-suave);
+    color: var(--acento);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.cantidad__boton:hover {
+    background: var(--acento);
+    color: #fff;
+}
+
+.cantidad__input {
+    width: 48px;
+    height: 34px;
+    border: none;
+    text-align: center;
+    font: inherit;
+    background: transparent;
+    color: var(--texto);
+    -moz-appearance: textfield;
+}
+
+.cantidad__input::-webkit-outer-spin-button,
+.cantidad__input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.estado {
+    margin-top: 12px;
+    color: var(--suave);
+    font-size: 0.9rem;
+}
+
+.resumen {
+    position: sticky;
+    top: 24px;
+}
+
+.resumen__lista {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 24px;
+    margin-bottom: 16px;
+}
+
+.resumen__lista li {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: var(--suave);
+}
+
+.resumen__lista:empty::before {
+    content: "Aún no has añadido nada";
+    color: var(--suave);
+    font-size: 0.9rem;
+}
+
+.resumen__total {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-top: 16px;
+    border-top: 1px solid var(--borde);
+    font-weight: 700;
+}
+
+#total {
+    font-size: 1.5rem;
+    color: var(--acento);
+}
+
+@media (max-width: 760px) {
+    .tienda {
+        grid-template-columns: 1fr;
+        padding: 16px;
+    }
+
+    .productos__cabecera {
+        display: none;
+    }
+
+    .producto {
+        grid-template-columns: 1fr auto;
+    }
+
+    .producto__precio {
+        text-align: left;
+        color: var(--suave);
+    }
+
+    .resumen {
+        position: static;
+    }
+}
