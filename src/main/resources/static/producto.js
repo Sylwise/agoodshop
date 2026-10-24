@@ -1,12 +1,12 @@
 class ProductoEnCarrito {
-  constructor(SKU, title, price) {
-    this.SKU = SKU;
-    this.title = title;
-    this.price = price;
+  constructor(sku, titulo, precio) {
+    this.sku = sku;
+    this.titulo = titulo;
+    this.precio = precio;
     this.unidades = 0;
   }
 
   subTotal() {
-    return this.price * this.unidades;
+    return this.precio * this.unidades;
   }
 }
